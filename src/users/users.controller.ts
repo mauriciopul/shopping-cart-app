@@ -1,25 +1,68 @@
-import { Controller, Get, Req, Res, HttpStatus, Post, Body } from '@nestjs/common';
-import { Request, Response } from 'express';
+import { Controller, Get, Req, Res, HttpStatus, Post, Body, Param, Delete, Put } from '@nestjs/common';
+import { Request, Response, response } from 'express';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
+import { User } from './interfaces/user.interface';
+import { async } from 'rxjs/internal/scheduler/async';
 
 @Controller('users')
 export class UsersController {
 
     constructor(private readonly usersService: UsersService) { };
 
-    @Get('/:id/:name')
-    findAll1(@Req() request: Request, @Res() response: Response): object {
+    @Get()
+    async findAll(@Res() response: Response) {
+        const users = await this.usersService.findAll();
+        return response.status(HttpStatus.OK).json({ users });
+    };
 
-        const id = request.params.id;
-        const name = request.params.name;
-
-        return response.status(HttpStatus.OK).json({ id, name });
-    }
+    @Get('/:id')
+    async findOne(@Param() params, @Res() res: Response) {
+        const id = params.id;
+        const users = await this.usersService.findOne(id);
+        return res.status(HttpStatus.OK).json({ users });
+    };
 
     @Post()
     async create(@Body() CreateUserDto: CreateUserDto, @Res() response: Response) {
         const createdUser = await this.usersService.create(CreateUserDto);
-        return response.status(HttpStatus.CREATED).json({createdUser});
-    }
+        return response.status(HttpStatus.CREATED).json({ createdUser });
+    };
+
+    @Put('/:id')
+    async update(@Param() id: string, @Body() CreateUserDto: CreateUserDto, @Res() response: Response) {
+        const updateUser = await this.usersService.update(id, CreateUserDto);
+        return response.status(HttpStatus.OK).json({ updateUser });
+    };
+    @Delete('/:id')
+    async remove(@Param() id: string, @Res() response: Response) {
+        const deleteUser = await this.usersService.delete(id);
+        return response.status(HttpStatus.MOVED_PERMANENTLY).json({deleteUser});
+    };
+
+
+
+
+
+
+
+
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
