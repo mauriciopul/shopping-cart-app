@@ -30,12 +30,12 @@ export class UsersController {
     };
 
     @Put('/:id')
-    async update(@Param() id: string, @Body() CreateUserDto: CreateUserDto, @Res() response: Response) {
+    async update(@Param('id') id: string, @Body() CreateUserDto: CreateUserDto, @Res() response: Response) {
         const updateUser = await this.usersService.update(id, CreateUserDto);
         return response.status(HttpStatus.OK).json({ updateUser });
     };
     @Delete('/:id')
-    async remove(@Param() id: string, @Res() response: Response) {
+    async remove(@Param('id') id: string, @Res() response: Response) {
         const deleteUser = await this.usersService.delete(id);
         return response.status(HttpStatus.MOVED_PERMANENTLY).json({deleteUser});
     };
