@@ -1,9 +1,7 @@
-import { Controller, Get, Req, Res, HttpStatus, Post, Body, Param, Delete, Put } from '@nestjs/common';
-import { Request, Response, response } from 'express';
+import { Controller, Get, Res, HttpStatus, Post, Body, Param, Delete, Put } from '@nestjs/common';
+import { Response} from 'express';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
-import { User } from './interfaces/user.interface';
-import { async } from 'rxjs/internal/scheduler/async';
 
 @Controller('users')
 export class UsersController {
