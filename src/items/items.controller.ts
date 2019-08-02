@@ -1,21 +1,30 @@
 import { Controller, Get, Put, Delete, Post, Param, Body, HttpStatus, Res } from '@nestjs/common';
-import { async } from 'rxjs/internal/scheduler/async';
-import { response } from 'express';
+import { Response, response } from 'express';
+import { ItemsService } from './items.service';
+import { CreateItemDto } from './dto/create-item.dto';
 
 @Controller('items')
 export class ItemsController {
 
-@Get()
-async todosItems(@Res() response: Response){
-    const items = await this.todosItems.todosItems();
-    return response.status(HttpStatus.OK).json({items});
-}
+    constructor(private readonly itemsService: ItemsService) { };
 
-@Post()
+    @Get()
+    async todosItem(@Res() response: Response) {
+        const items = await this.itemsService.todosItem();
+        return response.status(HttpStatus.OK).json({ items });
+        //   return 'todos los items';
+    };
 
-@Put()
+    @Post()
+    async create(@Body() CreateItemDto: CreateItemDto, @Res() response:Response){
+        const createItem = await this.itemsService.create(CreateItemDto);
+        return response.status(HttpStatus.CREATED).json(CreateItemDto);
+    }
 
-@Delete()
+    /*
+    @Put()
 
+    @Delete()
+*/
 
-}
+};

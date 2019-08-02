@@ -5,5 +5,5 @@ export interface Item extends Document {
     readonly nombre: string;
     readonly descripcion: string;
     readonly precio: string;
-    readonly cantidadStock: string
+    readonly cantidadStock: string;
 }
