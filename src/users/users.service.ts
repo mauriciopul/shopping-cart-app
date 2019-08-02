@@ -29,9 +29,9 @@ export class UsersService {
         return await createdUser.save();
     };
 
-    async update(id: string, createUserDto:CreateUserDto): Promise<User>{
+    async update(id: string, createUserDto: CreateUserDto): Promise<User> {
         const updateUser = await this.findOne(id);
-        return await updateUser.update(createUserDto);
+        return await updateUser.update({createUserDto});
     };
 
 }

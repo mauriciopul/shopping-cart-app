@@ -32,6 +32,7 @@ export class UsersController {
         const updateUser = await this.usersService.update(id, CreateUserDto);
         return response.status(HttpStatus.OK).json({ updateUser });
     };
+    
     @Delete('/:id')
     async remove(@Param('id') id: string, @Res() response: Response) {
         const deleteUser = await this.usersService.delete(id);

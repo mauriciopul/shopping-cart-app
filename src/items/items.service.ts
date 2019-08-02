@@ -16,16 +16,21 @@ export class ItemsService {
 
     async unicoItem(id: string): Promise<Item> {
         return await this.itemModel.findById(id);
-    };
+    }
 
     async delete(id: string): Promise<Item> {
         const deletItem = await this.itemModel.findById(id);
         return deletItem.remove();
     };
+
     async create(createItemDto: CreateItemDto){
         const createItem = new this.itemModel(createItemDto);
-        return await createItem.save();
-        
+        return await createItem.save();        
+    };
+    
+    async update(id: string, createItemDto: CreateItemDto): Promise<Item>{
+        const updateItem = await this.unicoItem(id);
+        return await updateItem.update(createItemDto);        
     };
 
 
