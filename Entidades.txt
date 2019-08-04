@@ -1,0 +1,65 @@
+USUARIO
+            "activo": true,
+            "_id": "5d40928ba20a221928398085",
+            "name": "Mauricio Pulgarin",
+            "email": "mauriciopul@hotmail.com",
+            "password": "mmmxxx",
+            "address": "calle 1 cra 1",
+            "phone": "11223344",
+            "createAt": "2019-07-30T18:55:07.916Z",
+----------------------
+		DESPUES DE REALIZAR LA COMPRA SE DEBE ACTUALIZAR LA CANTIDAD STOCK DE LA ENTIDAD ITEM
+--------------------------------------------------------
+ITEM
+            "activo": true,
+            "_id": "5d444307b985ec2e4413db30",
+            "nombre": "Balon de futbol",
+            "descripcion": "Balon de futbol marca Adidas # 5",
+            "precio": "70000",
+            "cantidadStock": "250",
+----------------------
+--------------------------------------------------------
+COMPRA
+            "cancelado": false,
+            "_id": "5d448d5dada64d0d9c166753",
+            "idCompra": "1",
+            "recha_envio": "22/12/2019",
+            "direccion": "Por mi casa",
+            "total": "2",
+		SE DEBE CREAR UNA OPERACION QUE MULTIPLIQUE LA CANTIDAD DE PEDIDOS POR PRECIO PARA ENVIARLOS AL TOTAL DEL PEDIDO
+----------------------
+--------------------------------------------------------
+PEDIDO
+idCompra	C
+idPedido	I
+detallePedido	I
+idUsuario	U
+nombreUsuario	U
+email		U
+fecha_envio	C
+total		CxI
+cantidadStock	C-I
+direccion	U
+telefono	U
+total
+
+----------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

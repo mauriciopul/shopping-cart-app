@@ -11,7 +11,7 @@ export class ItemsService {
     constructor(@InjectModel('Item') private readonly itemModel: Model<Item>) { }
 
     async todosItem(): Promise<Item[]> {
-        return await this.itemModel.find();
+        return await this.itemModel.find({activo: true});
     }
 
     async unicoItem(id: string): Promise<Item> {
