@@ -2,11 +2,11 @@ import { Schema } from 'mongoose';
 
 export const ItemSchema = new Schema({
 
-    nombre: {
+    codigoProducto: {
         type: String,
         required: true
     },
-    descripcion: {
+    nombre: {
         type: String,
         required: true
     },
@@ -14,7 +14,7 @@ export const ItemSchema = new Schema({
         type: String,
         required: true
     },
-    cantidadStock: {
+    descripcion: {
         type: String,
         required: true
     },

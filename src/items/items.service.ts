@@ -32,7 +32,7 @@ export class ItemsService {
         const updateItem = await this.unicoItem(id);
         return await updateItem.update(createItemDto);        
     };
-
+  
 
 
 }
