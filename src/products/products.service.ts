@@ -14,16 +14,6 @@ export class ProductsService {
         return await this.productModel.find();
     };
 
-    async sumarPrecios() {        
-        var sumPre = 0;
-        let precio: any[] = await this.productModel.find();
-        precio.filter(function (pr) {
-            sumPre += pr.precioProducto;
-        });
-        console.log(`suma: ${sumPre}`);
-        return sumPre;
-    };
-
     async findOne(id: string): Promise<Product> {
         return await this.productModel.findById(id);
     };
@@ -42,4 +32,16 @@ export class ProductsService {
         const updateProduct = await this.findOne(id);
         return await updateProduct.update(createProductDto);
     };
+
+    async sumarPrecios() {
+        var sumPre = 0;
+        let precio: any[] = await this.productModel.find();
+        precio.filter(function (pr) {
+            sumPre += pr.precioProducto;
+        });
+        console.log(`suma: ${sumPre}`);
+        return sumPre;
+    };
+
+
 };

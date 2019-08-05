@@ -81,7 +81,8 @@ total
 ----------------------
 
 
-
+RELACIONES
+https://carlosazaustre.es/como-relacionar-tus-modelos-en-mongodb/
 
 
 
