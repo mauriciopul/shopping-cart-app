@@ -10,7 +10,18 @@ export class ProductsService {
     constructor(@InjectModel('Product') private readonly productModel: Model<Product>) { }
 
     async findAll(): Promise<Product[]> {
+        this.sumarPrecios();
         return await this.productModel.find();
+    };
+
+    async sumarPrecios() {        
+        var sumPre = 0;
+        let precio: any[] = await this.productModel.find();
+        precio.filter(function (pr) {
+            sumPre += pr.precioProducto;
+        });
+        console.log(`suma: ${sumPre}`);
+        return sumPre;
     };
 
     async findOne(id: string): Promise<Product> {
