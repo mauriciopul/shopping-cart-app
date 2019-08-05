@@ -9,7 +9,8 @@ import { InvoiceService } from './invoice/invoice.service';
 import { InvoiceModule } from './invoice/invoice.module';
 
 @Module({
-  imports: [MongooseModule.forRoot('mongodb://localhost/shopping-cart-se'), UsersModule, ProductsModule, InvoiceModule],
+  imports: [MongooseModule.forRoot('mongodb://localhost/shopping-cart-se'), 
+  UsersModule, ProductsModule, InvoiceModule],
   
   controllers: [AppController, InvoiceController],
   providers: [AppService, InvoiceService],
