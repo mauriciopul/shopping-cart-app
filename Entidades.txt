@@ -1,34 +1,35 @@
 NUEVAS ENTIDADES
 
 USUARIO
-      "codigoUsuario"
-      "name"
-      "email"
-      "password"
-      "activo"
-      "address"
-      "phone"
-      "createAt"
+    userCode: string;
+    name: string;
+    email: string;
+    password: string;
+    active: boolean;
+    address: string;
+    phone: string;
+    createAt: Date;
 
-FACTURA
-      "facturaNumero"
-      "codigoUsuario"
-      "facturaFecha"
-      "facturaMonto"
-      "facturaDescuento"
-      "facturaTotal"
+FACTURA (INVOICE)
+    invoiceNumber: string;     
+    userCode: string;          
+    dateInvoice: Date;         
+    amountInvoice: number;     
+    invoiceDiscount: number;   
+    invoiceTotal: number;
 
-FACTURA_DETALLE
-      "facturaNumero"
-      "codigoProducto"
-      "cantidad"
-      "precio"
-      "total"
+PRODUCTO (PRODUCT)
+    codigoProducto: string;
+    nombreProducto: string;
+    precioProducto: number;
 
-PRODUCTO
-      "codigoProducto"
-      "nombreProducto"
-      "precioProducto"
+FACTURA_DETALLE (INVOICEDETAIL)
+      facturaNumero: number;
+      codigoProducto: string;
+      cantidad: number;
+      precio: number;
+      total: number;
+
 
 
 --------------------------------------

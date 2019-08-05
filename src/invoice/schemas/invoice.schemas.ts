@@ -17,7 +17,8 @@ export const invoiceSchema = new Schema({
     //Fecha de factura
     dateInvoice: {
         type: Date,
-        required: false
+        required: true,
+        default: Date.now
     },
 
     //Monto de factura

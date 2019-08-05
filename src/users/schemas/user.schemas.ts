@@ -2,7 +2,7 @@ import { Schema } from "mongoose";
 
 
 export const UserSchema = new Schema({
-    codigoUsuario: {
+    userCode: {
         type: String,
         required: true
     },
