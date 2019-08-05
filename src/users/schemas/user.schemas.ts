@@ -1,9 +1,14 @@
 import { Schema } from "mongoose";
 
+
 export const UserSchema = new Schema({
+    codigoUsuario: {
+        type: String,
+        required: true
+    },
     name: {
         type: String,
-        required: true,
+        required: true
     },
     email: {
         type: String,

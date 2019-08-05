@@ -1,3 +1,37 @@
+NUEVAS ENTIDADES
+
+USUARIO
+      "codigoUsuario"
+      "name"
+      "email"
+      "password"
+      "activo"
+      "address"
+      "phone"
+      "createAt"
+
+FACTURA
+      "facturaNumero"
+      "codigoUsuario"
+      "facturaFecha"
+      "facturaMonto"
+      "facturaDescuento"
+      "facturaTotal"
+
+FACTURA_DETALLE
+      "facturaNumero"
+      "codigoProducto"
+      "cantidad"
+      "precio"
+      "total"
+
+PRODUCTO
+      "codigoProducto"
+      "nombreProducto"
+      "precioProducto"
+
+
+--------------------------------------
 USUARIO
             "activo": true,
             "_id": "5d40928ba20a221928398085",
