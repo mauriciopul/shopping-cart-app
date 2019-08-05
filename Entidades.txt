@@ -1,7 +1,7 @@
 NUEVAS ENTIDADES
 
 USUARIO
-    userCode: string;
+    userCode: string;			*UF
     name: string;
     email: string;
     password: string;
@@ -11,23 +11,23 @@ USUARIO
     createAt: Date;
 
 FACTURA (INVOICE)
-    invoiceNumber: string;     
-    userCode: string;          
+    invoiceNumber: string;     		*FF
+    userCode: string;          		*UF
     dateInvoice: Date;         
     amountInvoice: number;     
     invoiceDiscount: number;   
     invoiceTotal: number;
 
 PRODUCTO (PRODUCT)
-    codigoProducto: string;
+    codigoProducto: string;		*FD_P
     nombreProducto: string;
-    precioProducto: number;
+    precioProducto: number;		*FD_P
 
 FACTURA_DETALLE (INVOICEDETAIL)
       facturaNumero: number;
-      codigoProducto: string;
+      codigoProducto: string;		*FD_P
       cantidad: number;
-      precio: number;
+      precio: number;			*FD_P
       total: number;
 
 
