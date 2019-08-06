@@ -30,23 +30,28 @@ export class ProductsService {
     async create(createProductDto: CreateProductDto): Promise<Product> {
 
         const createProduct = await new this.productModel(createProductDto);
-        var codDto = createProduct.codigoProducto;
+        var codDto: string = createProduct.codigoProducto;//Recibe el codigoProducto enviado por POST
 
         var sw = false;
-        var codRecibe: any[] = await this.productModel.find();
+        var codRecibe: any = await this.productModel.findOne({ "codigoProducto": "333sdeee43" });
+        
 
-        codRecibe.filter(function (recibe) {
-            var tem = recibe.codigoProducto;
-            if (tem == codDto) sw = true;
-        });
+        console.log(`codDto: ${codDto}`);
+        console.log(`codRecibe ${codRecibe}`);
+        return;
 
-        if (sw == false) {
-            return await createProduct.save();
-        } else {
-            return await this.getCodYaExiste();
-        };
+        // // codRecibe.filter(function (recibe) {
+        // //     var tem = recibe.codigoProducto;
+        //  //   if (codRecibe) sw = true;
+        // // });
+
+        // if (codRecibe) {
+        //     return await createProduct.save();
+        // } else {
+        //     return await this.getCodYaExiste();
+        // };
     };
-    
+
 
     // async create(createProductDto: CreateProductDto): Promise<Product> {
 
