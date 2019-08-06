@@ -27,6 +27,35 @@ export class ProductsService {
         return await deleteProduct.remove();
     };
 
+<<<<<<< HEAD
+=======
+    async create(createProductDto: CreateProductDto): Promise<Product> {
+
+        const createProduct = await new this.productModel(createProductDto);
+        var codDto: string = createProduct.codigoProducto;//Recibe el codigoProducto enviado por POST
+
+        var sw = false;
+        var codRecibe: any = await this.productModel.findOne({ "codigoProducto": "333sdeee43" });
+        
+
+        console.log(`codDto: ${codDto}`);
+        console.log(`codRecibe ${codRecibe}`);
+        return;
+
+        // // codRecibe.filter(function (recibe) {
+        // //     var tem = recibe.codigoProducto;
+        //  //   if (codRecibe) sw = true;
+        // // });
+
+        // if (codRecibe) {
+        //     return await createProduct.save();
+        // } else {
+        //     return await this.getCodYaExiste();
+        // };
+    };
+
+
+>>>>>>> refs/remotes/origin/master
     // async create(createProductDto: CreateProductDto): Promise<Product> {
 
     //     const createProduct = await new this.productModel(createProductDto);
