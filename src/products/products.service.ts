@@ -14,7 +14,7 @@ export class ProductsService {
     };
 
     async findAll(): Promise<Product[]> {
-        //this.sumarPrecios();
+        // this.sumarPrecios();
         return await this.productModel.find();
     };
 
@@ -26,6 +26,31 @@ export class ProductsService {
         const deleteProduct = await this.productModel.findById(id);
         return await deleteProduct.remove();
     };
+
+    // async create(createProductDto: CreateProductDto): Promise<Product> {
+
+    //     const createProduct = await new this.productModel(createProductDto);
+    //     var codDto = createProduct.codigoProducto;
+
+    //     var sw = false;
+    //     var codRecibe: any = await this.productModel.findOne();
+
+    //     this.productModel.findOne({ codigoProducto: codRecibe }).toArray
+
+    //     codRecibe.filter(function (recibe) {
+    //         var tem = recibe.codigoProducto;
+    //         if (tem == codDto) sw = true;
+    //     });
+
+    //     if (sw == false) {
+    //         const a = await createProduct.save();
+    //         // await this.sumarPrecios();
+    //         return a;
+    //     } else {
+    //         return await this.getCodYaExiste();
+    //     };
+    // };
+
 
     async create(createProductDto: CreateProductDto): Promise<Product> {
 
@@ -41,32 +66,12 @@ export class ProductsService {
         });
 
         if (sw == false) {
-            return await createProduct.save();
+           const a = await createProduct.save();           
+           return a;
         } else {
-            return await this.getCodYaExiste();
+           return await this.getCodYaExiste();
         };
     };
-    
-
-    // async create(createProductDto: CreateProductDto): Promise<Product> {
-
-    //     const createProduct = await new this.productModel(createProductDto);
-    //     var codDto = createProduct.codigoProducto;
-
-    //     var sw = false;
-    //     var codRecibe: any[] = await this.productModel.find();
-
-    //     codRecibe.filter(function (recibe) {
-    //         var tem = recibe.codigoProducto;
-    //         if (tem == codDto) sw = true;
-    //     });
-
-    //     if (sw == false) {
-    //         return await createProduct.save();
-    //     } else {
-    //         return await this.getCodYaExiste();
-    //     };
-    // };
 
     async update(id: string, createProductDto: CreateProductDto): Promise<Product> {
         const updateProduct = await this.findOne(id);
@@ -80,7 +85,7 @@ export class ProductsService {
     //         sumPre += pr.precioProducto;
     //     });
     //     console.log(`suma: ${sumPre}`);
-    //     return sumPre;
+    //     return await sumPre;
     // };
 
 
