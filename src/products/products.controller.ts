@@ -20,6 +20,17 @@ export class ProductsController {
         const products = await this.productsService.findOne(id);
         return await resp.status(HttpStatus.OK).json({ products });
     };
+    @Get('/codigo/:codigoProd')
+    async findOneByCod(@Param() params, @Res() resp: Response) {
+        const cod = params.codigoProd;
+        await this.productsService.findOneByCod(cod)
+        .then( (product)=>{
+             resp.status(HttpStatus.OK).json({ product });
+          })
+          .catch( (error)=>{
+            resp.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ error });
+          });        
+    };
 
     @Post()
     async create(@Body() createProducDto: CreateProductDto, @Res() resp: Response) {
